@@ -1,0 +1,20 @@
+{
+  "name": "bsh-jasker-sample",
+  "version": "0.0.1",
+  "description": "Repository for a sample bsh-jasker app",
+  "main": "app/jaskerSample.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FranzZemen/bsh-jasker-sample.git"
+  },
+  "author": "Franz Zemen <franzzemen@gmail.com> (https://www.linkedin.com/pub/franz-zemen/0/2b5/105)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FranzZemen/bsh-jasker-sample/issues"
+  },
+  "homepage": "https://github.com/FranzZemen/bsh-jasker-sample",
+  "dependencies": {
+    "bsh-jasker": ">=0",
+    "bunyan": "^1.2.4"
+  }
+}
