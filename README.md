@@ -34,19 +34,20 @@ The sample is a contrived continuous execution.  In reality, REST calls, messagi
 
 ## Output
 
-    [2015-01-18T05:29:22.435Z]  INFO: jaskerSample/14276 on Enterprise: Successfully initialized jaskerMap
-    [2015-01-18T05:29:22.437Z]  INFO: jaskerSample/14276 on Enterprise: Starting flow. Current state is sample1
-    [2015-01-18T05:29:22.437Z]  INFO: jaskerSample/14276 on Enterprise: First "next", should be at sample2. Current state is sample2
-    [2015-01-18T05:29:22.438Z]  INFO: jaskerSample/14276 on Enterprise: Second "next", should be at sample3. Current state is sample3
-    [2015-01-18T05:29:22.438Z]  INFO: jaskerSample/14276 on Enterprise: Still at sample3. Current state is sample3
-    [2015-01-18T05:29:22.439Z]  INFO: jaskerSample/14276 on Enterprise: Third "next" should be at sample3. Current state is sample1
-    [2015-01-18T05:29:22.439Z]  INFO: jaskerSample/14276 on Enterprise: Third "next" should also be at sample4. Current state is sample4
-    [2015-01-18T05:29:22.439Z]  INFO: jaskerSample/14276 on Enterprise: document at state sample3
+    [2015-01-18T05:34:09.565Z]  INFO: jaskerSample/31860 on Enterprise: Successfully initialized jaskerMap
+    [2015-01-18T05:34:09.567Z]  INFO: jaskerSample/31860 on Enterprise: Starting flow. Current state is sample1
+    [2015-01-18T05:34:09.567Z]  INFO: jaskerSample/31860 on Enterprise: First "next", should be at sample2. Current state is sample2
+    [2015-01-18T05:34:09.568Z]  INFO: jaskerSample/31860 on Enterprise: Second "next", should be at sample3. Current state is sample3
+    [2015-01-18T05:34:09.568Z]  INFO: jaskerSample/31860 on Enterprise: Still at sample3. Current state is sample3
+    [2015-01-18T05:34:09.569Z]  INFO: jaskerSample/31860 on Enterprise: Third "next" should be at sample1. Current state is sample1
+    [2015-01-18T05:34:09.569Z]  INFO: jaskerSample/31860 on Enterprise: Third "next" should also be at sample4. Current state is sample4
+    [2015-01-18T05:34:09.569Z]  INFO: jaskerSample/31860 on Enterprise: document at state sample`
         document: {
           "field1": "someValue"
         }
-    [2015-01-18T05:29:22.439Z]  INFO: jaskerSample/14276 on Enterprise: document at state sample4
+    [2015-01-18T05:34:09.569Z]  INFO: jaskerSample/31860 on Enterprise: document at state sample4
         document: {
           "field1": "someValue",
           "cloned": true
         }
+    [2015-01-18T05:34:09.569Z]  INFO: jaskerSample/31860 on Enterprise: Fourth "next" on instance at sample4, should be at sample5. Current state is sample5
