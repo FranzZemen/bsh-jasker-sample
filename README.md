@@ -21,7 +21,8 @@ The sample is a contrived continuous execution.  In reality, REST calls, messagi
                         next: stateEnum.sample3
                     },
                     sample3: {
-                        next: [stateEnum.sample1, stateEnum.sample4]
+                        next: [stateEnum.sample1, stateEnum.sample4],
+                        splitMode: 'clone'
                     },
                     sample4: {
                         next: stateEnum.sample5
@@ -33,10 +34,19 @@ The sample is a contrived continuous execution.  In reality, REST calls, messagi
 
 ## Output
 
-    [2015-01-18T05:20:44.305Z]  INFO: jaskerSample/17060 on Enterprise: Successfully initialized jaskerMap
-    [2015-01-18T05:20:44.306Z]  INFO: jaskerSample/17060 on Enterprise: Starting flow. Current state is sample1
-    [2015-01-18T05:20:44.307Z]  INFO: jaskerSample/17060 on Enterprise: First "next", should be at sample2. Current state is sample2
-    [2015-01-18T05:20:44.308Z]  INFO: jaskerSample/17060 on Enterprise: Second "next", should be at sample3. Current state is sample3
-    [2015-01-18T05:20:44.308Z]  INFO: jaskerSample/17060 on Enterprise: Still at sample3. Current state is sample3
-    [2015-01-18T05:20:44.308Z]  INFO: jaskerSample/17060 on Enterprise: Third "next" should output sample1 or sample4. Current state is sample1
-    [2015-01-18T05:20:44.308Z]  INFO: jaskerSample/17060 on Enterprise: Third "next" should output sample1 or sample4. Current state is sample4
+    [2015-01-18T05:29:22.435Z]  INFO: jaskerSample/14276 on Enterprise: Successfully initialized jaskerMap
+    [2015-01-18T05:29:22.437Z]  INFO: jaskerSample/14276 on Enterprise: Starting flow. Current state is sample1
+    [2015-01-18T05:29:22.437Z]  INFO: jaskerSample/14276 on Enterprise: First "next", should be at sample2. Current state is sample2
+    [2015-01-18T05:29:22.438Z]  INFO: jaskerSample/14276 on Enterprise: Second "next", should be at sample3. Current state is sample3
+    [2015-01-18T05:29:22.438Z]  INFO: jaskerSample/14276 on Enterprise: Still at sample3. Current state is sample3
+    [2015-01-18T05:29:22.439Z]  INFO: jaskerSample/14276 on Enterprise: Third "next" should be at sample3. Current state is sample1
+    [2015-01-18T05:29:22.439Z]  INFO: jaskerSample/14276 on Enterprise: Third "next" should also be at sample4. Current state is sample4
+    [2015-01-18T05:29:22.439Z]  INFO: jaskerSample/14276 on Enterprise: document at state sample3
+        document: {
+          "field1": "someValue"
+        }
+    [2015-01-18T05:29:22.439Z]  INFO: jaskerSample/14276 on Enterprise: document at state sample4
+        document: {
+          "field1": "someValue",
+          "cloned": true
+        }

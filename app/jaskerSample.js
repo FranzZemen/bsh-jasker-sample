@@ -33,7 +33,8 @@
                         next: stateEnum.sample3
                     },
                     sample3: {
-                        next: [stateEnum.sample1, stateEnum.sample4]
+                        next: [stateEnum.sample1, stateEnum.sample4],
+                        splitMode: 'clone'
                     },
                     sample4: {
                         next: stateEnum.sample5
@@ -75,7 +76,10 @@
                     // At this point result is still just a jaskerInstance
                     // Now a contrived call wants to move the state forward, which results in a split
                     result.next().then(function (result) {
-                        logCurrentState('Third "next" should output sample1 or sample4',result);
+                        logCurrentState('Third "next" should be at sample3',result[0]);
+                        logCurrentState('Third "next" should also be at sample4', result[1]);
+                        log.info({document:result[0].document()},'document at state sample3');
+                        log.info({document:result[1].document()},'document at state sample4');
                     }, function (err) {
                         log.error(err);
                     });
