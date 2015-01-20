@@ -16,6 +16,7 @@
   "dependencies": {
     "bsh-jasker": ">=0",
     "bunyan": "^1.2.4",
+    "lodash": "^2.4.1",
     "node-promise": "^0.5.11"
   }
 }

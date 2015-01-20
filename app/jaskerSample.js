@@ -12,6 +12,7 @@
 
     var jaskerMap = new jasker.JaskerMap();
     var jaskerInstance;
+    var JaskerNextDecisionSample = require('./JaskerNextDecisionSample');
 
     var stateEnum = {
         sample1: 'sample1',
@@ -37,7 +38,7 @@
                         splitMode: 'clone'
                     },
                     sample4: {
-                        next: stateEnum.sample5
+                        nextDecision : JaskerNextDecisionSample
                     },
                     sample5: {}
                 }
@@ -51,7 +52,7 @@
             };
             // Pretend a rest call ended up requiring the state to move forward.
             // We create a jasker instance from some document.
-            jaskerInstance = new jasker.JaskerInstance(jaskerMap, stateEnum.sample1, document);
+            jaskerInstance = new jasker.JaskerInstance(jaskerMap, document, stateEnum.sample1);
             logCurrentState('Starting flow', jaskerInstance);
 
             // Another contrived call comes in wants to move the state forward 2 states
@@ -78,10 +79,15 @@
                     result.next().then(function (result) {
                         logCurrentState('Third "next" should be at sample1',result[0]);
                         logCurrentState('Third "next" should also be at sample4', result[1]);
-                        log.info({document:result[0].document()},'document at state sample`');
+                        log.info({document:result[0].document()},'document at state sample2`');
                         log.info({document:result[1].document()},'document at state sample4');
-                        result[1].next().then(function (result){
-                            logCurrentState('Fourth "next" on instance at sample4, should be at sample5', result);
+                        result[1].next().then(function (result2){
+                            logCurrentState('Fourth "next" on instance at sample4, should be at sample5', result2);
+                            result[1].next().then(function(result3) {
+                                logCurrentState('Fifth "next" on instance at sample3, should be at sample5 via nextDecision', result3);
+                            }, function(err) {
+                               log.error (err);
+                            });
                         }, function (err) {
                             log.error(err);
                         });
