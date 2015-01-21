@@ -14,8 +14,8 @@
     JaskerNextDecisionSample.prototype = Object.create(JaskerNextDecision.prototype);
     JaskerNextDecisionSample.prototype.constructor = JaskerNextDecisionSample;
 
-    JaskerNextDecisionSample.prototype.next = function (document, state, stateData) {
-        return ['sample5'];
+    JaskerNextDecisionSample.prototype.next = function (document, state, stateData, promise) {
+        promise.resolve(['sample5']);
     };
 
     module.exports = JaskerNextDecisionSample;
