@@ -28,7 +28,13 @@
                 name: 'jaskerSample',
                 states: {
                     sample1: {
-                        next: stateEnum.sample2
+                        next: stateEnum.sample2,
+                        entryTasks : {
+                            entryTaskSample1 : {
+                                task: './../../../app/JaskerEntryTaskSample',
+                                optional: true
+                            }
+                        }
                     },
                     sample2: {
                         next: stateEnum.sample3
@@ -99,7 +105,7 @@
                 }
             );
         }, function (err) {
-            log.error(err);
+            log.error({err:err},'validation errors');
         }
     );
 
